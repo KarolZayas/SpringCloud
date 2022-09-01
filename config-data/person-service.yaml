@@ -1,9 +1,9 @@
 server:
-  port: 8002
+  port: 8003
   error:
     include-message: always
     include-binding-errors: always
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8099/eureka/
+      defaultZone: http://localhost:8066/eureka/
