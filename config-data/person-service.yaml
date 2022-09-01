@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port:  ${PORT:0}
   error:
     include-message: always
     include-binding-errors: always
@@ -9,6 +9,5 @@ eureka:
     register-with-eureka: true
     serviceUrl:
       defaultZone: http://localhost:8066/eureka/
-    instance:
-     metadataMap:
-       instanceId: ${spring.application.name}:${server.port}
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
