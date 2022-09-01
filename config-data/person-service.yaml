@@ -1,9 +1,13 @@
 server:
-  port: 8003
+  port: ${PORT:${SERVER_PORT:0}} #${random.int[9000,9900]}
   error:
     include-message: always
     include-binding-errors: always
 eureka:
   client:
+    fetch-registry: true #tal vez eliminar
+    register-with-eureka: true #tal vez eliminar
     serviceUrl:
       defaultZone: http://localhost:8066/eureka/
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
