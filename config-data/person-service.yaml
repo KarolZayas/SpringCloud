@@ -1,5 +1,5 @@
 server:
-  port:  ${PORT:0}
+  port: ${random.int[8500,8600]}
   error:
     include-message: always
     include-binding-errors: always
