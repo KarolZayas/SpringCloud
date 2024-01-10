@@ -25,10 +25,10 @@ jobs:
         run: echo "VERSION=${{ github.event.inputs.env }}" >> $GITHUB_ENV
         
       - name: print1
-        run: echo "${{ steps.startone.outputs.VAR_OUT}}"
+        run: echo "${{ steps.startone.env.VAR_OUT}}"
 
       - name: print2
-        run: echo "${{ steps.startone.outputs.ENVIROMENT}}"
+        run: echo "${{ steps.startone.env.ENVIROMENT}}"
 
       - name: print3
-        run: echo "${{ steps.startone.outputs.VERSION}}"
+        run: echo "${{ github.event.inputs.env.VERSION }}"
