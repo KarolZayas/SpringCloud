@@ -23,15 +23,12 @@ jobs:
           VAR_OUT: "THIS_STRING"
           ENVIROMENT: ${{ github.event.inputs.env }}
         run: echo "VERSION=${{ github.event.inputs.env }}" >> $GITHUB_ENV
-        
+
       - name: print1
-        run: echo "${{ steps.startone.env.VAR_OUT}}"
-
-      - name: print2
-        run: echo "${{ steps.startone.env.ENVIROMENT}}"
-
-      - name: print3
         run: echo "${{ env.VERSION }}"
         
-      - name: print4
-        run: echo "${{${{ env.VERSION }}:2}}"
+      - name: print2
+        run: echo LINK=${${{ env.VERSION }}:2} >> $GITHUB_ENV
+        
+      - name: print3
+        run: echo "${{ env.LINK }}"
