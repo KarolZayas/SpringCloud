@@ -29,6 +29,7 @@ jobs:
         run: | 
           LINK1="${VERSION:2}" 
           echo "LINK=$LINK1" >> $GITHUB_ENV
+          echo "OTRO=$LINK1" >> $GITHUB_ENV
 
       - name: display
         run: echo "LINK=$LINK" 
