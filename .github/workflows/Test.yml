@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: "Enviroment:"
+        default: development
+        required: true
+        options:
+          - development
+          - test
+jobs:
+  set:
+    name: test one
+    runs-on: ubuntu-20.04
+    steps:
+      - name: start and set vars
+        continue-on-error: true
+        id: startone
+        env:
+          VAR_OUT: "THIS_STRING"
+          ENVIROMENT: ${{ github.event.inputs.env }}
+        run: echo "VERSION=${{ github.event.inputs.env }}" >> $GITHUB_ENV
+        
+      - name: print1
+        run: echo "${{ steps.startone.outputs.VAR_OUT}}"
+
+      - name: print2
+        run: echo "${{ steps.startone.outputs.ENVIROMENT}}"
+
+      - name: print3
+        run: echo "${{ steps.startone.outputs.VERSION}}"
