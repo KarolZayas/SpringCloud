@@ -28,7 +28,7 @@ jobs:
         run: echo "${{ env.VERSION }}"
         
       - name: print2
-        run: echo "LINK=$(${${{env.VERSION}}:2})" >> $GITHUB_ENV
+        run: echo "LINK=$(${{env.VERSION}} | cut -c 3-)" >> $GITHUB_ENV
         
       - name: print3
         run: echo "${{ env.LINK }}"
