@@ -27,13 +27,11 @@ jobs:
       
       - name: set1
         run: echo "LINK=""" >> $GITHUB_ENV        
-      - name: print1
-        run: echo "${{ env.LINK }}"
-        
+              
       - name: setando
         run: | 
-          LINK="${VERSION:2}" 
-          echo "LINK=$LINK" >> $GITHUB_ENV
+          LINK1="${VERSION:2}" 
+          echo "LINK=$LINK1" >> $GITHUB_ENV
 
       - name: display
         run: echo "LINK=$LINK" 
