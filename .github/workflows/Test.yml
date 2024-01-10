@@ -24,23 +24,27 @@ jobs:
           ENVIROMENT: ${{ github.event.inputs.env }}
         run: echo "VERSION=${{ github.event.inputs.env }}" >> $GITHUB_ENV
 
+      
+      - name: set1
+        run: echo "LINK=${{env.VERSION}} | cut -c 2-4" >> $GITHUB_ENV        
       - name: print1
-        run: echo "${{ env.VERSION }}"
-        
-      - name: print2
-        run: echo "LINK=${{env.VERSION}} | cut -c 2-4" >> $GITHUB_ENV
-        
-      - name: print3
-        run: echo "LINK2=${${{env.VERSION}} | cut -c 2-4}" >> $GITHUB_ENV
-
-      - name: print4
-        run: echo "LINK3="${{env.VERSION}}" | cut -c 2-4" >> $GITHUB_ENV
-        
-      - name: print5
         run: echo "${{ env.LINK }}"
-
-      - name: print6
-        run: echo "${{ env.LINK2 }}"
         
-      - name: print7
-        run: echo "${{ env.LINK3 }}"
+        
+      - name: set2
+        run: echo "LINK2=$(${{env.VERSION}} | cut -c 2-4)" >> $GITHUB_ENV
+      - name: print2
+        run: echo "${{ env.LINK2}}"
+        
+
+      - name: set3
+        run: echo "LINK3=$("${{env.VERSION}}" | cut -c 2-4)" >> $GITHUB_ENV
+      - name: print3
+        run: echo "${{ env.LINK3}}"
+
+
+      - name: set4
+        run: echo "LINK4="${{env.VERSION}}" | cut -c 2-4" >> $GITHUB_ENV
+      - name: print4
+        run: echo "${{ env.LINK4}}"        
+
