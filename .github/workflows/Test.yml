@@ -26,25 +26,12 @@ jobs:
 
       
       - name: set1
-        run: echo "LINK=${{env.VERSION}} | cut -c 2-4" >> $GITHUB_ENV        
+        run: echo "LINK=""" >> $GITHUB_ENV        
       - name: print1
         run: echo "${{ env.LINK }}"
         
-        
-      - name: set2
-        run: echo "LINK2=$(${{env.VERSION}} | cut -c 2-4)" >> $GITHUB_ENV
-      - name: print2
-        run: echo "${{ env.LINK2}}"
-        
+      - name: setando
+        run: echo "${{ env.LINK }}" echo hola
 
-      - name: set3
-        run: echo "LINK3=$("${{env.VERSION}}" | cut -c 2-4)" >> $GITHUB_ENV
-      - name: print3
-        run: echo "${{ env.LINK3}}"
-
-
-      - name: set4
-        run: echo "LINK4="${{env.VERSION}}" | cut -c 2-4" >> $GITHUB_ENV
-      - name: print4
-        run: echo "${{ env.LINK4}}"        
-
+      - name: display
+        run: echo "" 
