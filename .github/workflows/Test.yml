@@ -23,10 +23,7 @@ jobs:
           VAR_OUT: "THIS_STRING"
           ENVIROMENT: ${{ github.event.inputs.env }}
         run: echo "VERSION=${{ github.event.inputs.env }}" >> $GITHUB_ENV
-
-      
-      - name: set1
-        run: echo "LINK=""" >> $GITHUB_ENV        
+  
               
       - name: setando
         run: | 
